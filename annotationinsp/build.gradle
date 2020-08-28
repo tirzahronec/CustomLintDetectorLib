@@ -1,0 +1,62 @@
+apply plugin: 'java'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+//    implementation 'org.junit.jupiter:junit-jupiter'
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        mavenLocal()
+    }
+
+    dependencies {
+//        compile(project(path: ':lint-rules')) {
+//            exclude group: 'com.android.tools.lint'
+//            exclude group: 'org.projectlombok'
+//        }
+        implementation 'com.android.tools.lint:lint:27.0.1'
+        implementation 'com.android.tools.lint:lint-api:27.0.1'
+        implementation 'com.android.tools.lint:lint-checks:27.0.1'
+        testImplementation "com.android.tools.lint:lint-tests:27.0.1"
+        testImplementation 'org.junit.jupiter:junit-jupiter-api:5.2.0'
+
+
+
+//        implementation "org.projectlombok:lombok:1.18.12"
+//        annotationProcessor 'org.projectlombok:lombok:1.18.12'
+        compileOnly "org.projectlombok:lombok:1.16.18"
+
+    }
+}
+
+sourceCompatibility = "1.7"
+targetCompatibility = "1.7"
+
+repositories {
+    jcenter()
+}
+
+jar {
+    manifest {
+        attributes 'Manifest-Version': 1.0
+        attributes 'Lint-Registry': 'com.example.annotationinsp.IssueRegistry'
+    }
+}
+
+defaultTasks 'assemble'
+
+/**
+ * Copies the jar file containing your lint module
+ * into the .android/lint directory in your home folder.
+ * */
+task copyLintJar(type: Copy) {
+    description = 'Copies the lint jar file into the {user.home}/.android/lint folder.'
+    from('build/libs/')
+    into(System.getProperty("user.home") + '/.AndroidStudio4.0/system/lint')
+    include("*.jar")
+}
+
+// Runs the copyLintJar task after build has completed.
+build.finalizedBy(copyLintJar)
+
