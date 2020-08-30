@@ -3,6 +3,8 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
       <module name="annotationinsp" target="1.7" />
+      <module name="lint-rules" target="1.7" />
+      <module name="lintlib" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

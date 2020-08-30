@@ -1,3 +1,4 @@
-include ':annotationinsp'
+include ':lintlib'
+//include 'lint-rules'
 include ':app'
 rootProject.name = "My Application"

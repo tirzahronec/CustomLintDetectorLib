@@ -1,19 +1,16 @@
 package com.example.myapplication;
 
 
-import com.example.annotationinsp.MyLibClass;
-import com.example.annotationinsp.annotations.CarefulNow;
+import com.example.lintlib.CarefulNow11;
 
 public class M {
-
-    @CarefulNow
+    @CarefulNow11
     public void v() {
-        MyLibClass myLibClass = new MyLibClass();
-        myLibClass.someDangerousMethod();
+        int c = 0;
+
     }
 
     public void u() {
-        MyLibClass myLibClass = new MyLibClass();
         v();
     }
 }

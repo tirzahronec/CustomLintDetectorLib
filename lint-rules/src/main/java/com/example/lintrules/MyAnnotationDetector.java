@@ -1,4 +1,4 @@
-package com.example.annotationinsp;
+package com.example.lintrules;
 
 import com.android.annotations.NonNull;
 import com.android.tools.lint.detector.api.Category;
@@ -10,7 +10,6 @@ import com.android.tools.lint.detector.api.Scope;
 import com.android.tools.lint.detector.api.Severity;
 import com.android.tools.lint.detector.api.SourceCodeScanner;
 import com.intellij.lang.ASTNode;
-import com.intellij.psi.JavaElementVisitor;
 import com.intellij.psi.JavaRecursiveElementVisitor;
 import com.intellij.psi.PsiAnnotation;
 import com.intellij.psi.PsiClass;
@@ -25,7 +24,7 @@ import java.util.Arrays;
 import java.util.List;
 
 
-public class MyAnnotationDetector extends Detector implements SourceCodeScanner {
+public class MyAnnotationDetector extends Detector implements Detector.UastScanner {
 
     public static final Issue CAREFUL_NOW_ISSUE = Issue.create(
             "CarefulNow",
@@ -39,7 +38,7 @@ public class MyAnnotationDetector extends Detector implements SourceCodeScanner 
                     MyAnnotationDetector.class,
                     Scope.JAVA_FILE_SCOPE));
 
-    private static final String CAREFUL_NOW_ANNOTATION = "com.example.annotationinsp.annotations.CarefulNow";
+    private static final String CAREFUL_NOW_ANNOTATION = "com.example.lintrules.annotations.CarefulNow";
 
     private static void checkAnnotations(@NonNull JavaContext context,
                                               @NonNull PsiAnnotation []annotations,

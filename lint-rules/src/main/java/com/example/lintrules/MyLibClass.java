@@ -1,6 +1,6 @@
-package com.example.annotationinsp;
+package com.example.lintrules;
 
-import com.example.annotationinsp.annotations.CarefulNow;
+import com.example.lintrules.annotations.CarefulNow;
 
 public class MyLibClass {
 

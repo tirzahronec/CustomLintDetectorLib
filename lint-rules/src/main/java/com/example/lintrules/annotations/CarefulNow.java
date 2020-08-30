@@ -1,4 +1,4 @@
-package com.example.annotationinsp.annotations;
+package com.example.lintrules.annotations;
 
 
 import java.lang.annotation.ElementType;

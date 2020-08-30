@@ -1,4 +1,4 @@
-package com.example.annotationinsp;
+package com.example.lintrules;
 
 public class AnnotationInspector {
 }
